@@ -27,6 +27,11 @@ def create_mc_questions(data):
     # edited_at = Column(String(255))
     # delete_at = Column(String(255))
 
+    # 检查重复text
+    # row = mysql_connection.query(McQuestion).filter_by(text=data['text']).first()
+    # if row:
+    #     return {"code":305,"data": {"msg": "question重复"}}
+
     try:
         created_at = datetime.datetime.now()
         dates = McQuestion(
@@ -69,6 +74,10 @@ def create_mc_questions(data):
 def create_sq_questions(data):
     session = sessionmaker(engine)
     mysql_connection = session()
+    # 检查重复text
+    # row = mysql_connection.query(shortquestion).filter_by(text=data['text']).first()
+    # if row:
+    #     return {"code": 305, "data": {"msg": "question重复"}}
 
 
     try:
@@ -110,6 +119,12 @@ def create_sq_questions(data):
 def create_pf_questions(data):
     session = sessionmaker(engine)
     mysql_connection = session()
+
+    #检查重复text
+    # row = mysql_connection.query(proofreading).filter_by(text=data['text']).first()
+    # if row:
+    #     return {"code": 305, "data": {"msg": "question重复"}}
+
 
     try:
         created_at = datetime.datetime.now()

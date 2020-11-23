@@ -190,6 +190,7 @@ def synchronize():
                 "text": rows[i][2], "items": select_answer,
                 "model_answer": rows[i][7], "explanation": rows[i][8]
             }
+            text = rows[i][2]
             res = create_mc_questions(data)
         elif action == "SQ":
             data = {
@@ -200,6 +201,7 @@ def synchronize():
                 "text": rows[i][2], "model_answer": rows[i][3],
                 "keyword_count": rows[i][4], "explanation": rows[i][5]
             }
+            text = rows[i][2]
             res = create_sq_questions(data)
         elif action == "PF":
             data = {
@@ -213,6 +215,7 @@ def synchronize():
                 "keyword_count2": rows[i][7], "model_answer2_title": rows[i][8],
                 "explanation": rows[i][9]
             }
+            text = rows[i][2]
             res = create_pf_questions(data)
 
         else:
@@ -220,12 +223,14 @@ def synchronize():
 
         if res["code"] == 500:
             error_list.append(rows[i][0:])
-        # if code == 2:
-        #     haved_list.append(rows[i][0:])
+
+        #重复数据
+        # if res["code"] == 305:
+        #     haved_list.append(text)
         #     print("数据重复")
         i += 1
     if len(error_list) == 0:
-        data = {"code": 200, "msg": "导入成功", "重复列表": haved_list}
+        data = {"code": 200, "msg": "导入成功", "重复question列表": haved_list}
         return ASocMessage.truemsg(data)
     if len(error_list) != 0:
         data = {"code": ERRCODE, "msg": "导入失败", "data": error_list, "重复列表不存在": haved_list}
