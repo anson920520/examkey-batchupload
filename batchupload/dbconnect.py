@@ -13,11 +13,11 @@ mysql_connection_for_db = session()
 redis_connection = redis.Redis(host="119.3.150.173",port=6379,password="acarepro20!9",decode_responses=True)
 redis_connection_for_user = redis.Redis(host="119.3.150.173",port=6379,password="acarepro20!9",db=7, decode_responses=True)
 
-host = "119.3.150.173"
+host = "mysql-dev.cmxlm4alocmn.ap-southeast-1.rds.amazonaws.com"
 port = 3306
-user = "root"
-password = "acarepro2019"
-dbname = "hkappraisal_ESG"
+user = "admin"
+password = "dCF6bgKsgCQ6UCKJD267uwd9wsVAv7s9eD42"
+dbname = "exam"
 
 # host = "127.0.0.1"
 # port = 3306

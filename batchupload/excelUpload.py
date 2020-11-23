@@ -16,9 +16,6 @@ from question.questions import create_mc_questions, create_sq_questions, create_
 
 up_api = Blueprint('upload', __name__)
 
-
-
-
 #上传问题 旧的写法  采用分割符逗号获取数值
 # @up_api.route('/', methods=["POST"])
 # # @Utils.is_adminuser_header
@@ -142,7 +139,7 @@ up_api = Blueprint('upload', __name__)
 
 
 #新上传方式， pandas采用了read_csv，如果后续觉得 这种上传方式比较好，建议可以替代以前写的旧的api接口
-@up_api.route('/', methods=['post'])
+@up_api.route('/', methods=['post'], strict_slashes=False)
 def synchronize():
     file = request.files['file']
     action = request.form.get("action")

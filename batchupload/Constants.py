@@ -6,10 +6,17 @@ from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
 
 
 # MYSQL_URL = "mysql+pymysql://root:134679852@127.0.0.1/hkappraisal_ESG?charset=utf8mb4"
-MYSQL_URL = "mysql+pymysql://root:acarepro2019@119.3.150.173/questions?charset=utf8mb4"
+MYSQL_URL = "mysql+pymysql://admin:dCF6bgKsgCQ6UCKJD267uwd9wsVAv7s9eD42@mysql-dev.cmxlm4alocmn.ap-southeast-1.rds.amazonaws.com/exam"
 REDIS_URL = "redis://:@localhost:6379/7" #部署後重新開啟
 
 JWT_KEYS = "CHINIJIADAMILE"
+
+
+host = "mysql-dev.cmxlm4alocmn.ap-southeast-1.rds.amazonaws.com"
+port = 3306
+user = "admin"
+password = "dCF6bgKsgCQ6UCKJD267uwd9wsVAv7s9eD42"
+dbname = "exam"
 
 ENCRY_UTIL = des(b"DESCRYPT", CBC, b"\0\0\0\0\0\0\0\0", pad=None, padmode=PAD_PKCS5)
 
